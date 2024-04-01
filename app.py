@@ -117,7 +117,6 @@ if __name__ == "__main__":
     np.savetxt('file1.txt', Theta1, delimiter=' ')
     np.savetxt('file2.txt', Theta2, delimiter=' ')
 
-    # Plot some examples from the test set with predicted and actual labels
     num_examples = 10
     indices = np.random.choice(len(X_test), num_examples, replace=False)
     predicted_labels = predict(Theta1, Theta2, X_test[indices])
@@ -132,7 +131,6 @@ if __name__ == "__main__":
     plt.tight_layout()
     plt.show()
 
-    # Calculate confusion matrix
     conf_matrix = confusion_matrix(y_test, predict(Theta1, Theta2, X_test))
     plt.figure(figsize=(10, 8))
     sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', cbar=False)
